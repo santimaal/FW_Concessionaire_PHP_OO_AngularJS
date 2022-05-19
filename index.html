@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="angular_js" lang="zxx">
+
+<head>
+    <title>Santi's house</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--========== ANGULAR JS ==========-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-route.min.js"></script>
+    <!--========== CONTROLLER AND SERVICES ==========-->
+    <script src="frontend/app.js"></script>
+    <script src="frontend/apiconnector.js"></script>
+    <script type="text/javascript" src="frontend/module/contact/controller/controller_contact.js"></script>
+    <script type="text/javascript" src="frontend/module/home/controller/controller_home.js"></script>
+    <!-- <script type="text/javascript" src="frontend/module/contact/services/services_contact.js"></script> -->
+    <!--========== TRANSLATE ==========-->
+    <!-- <script type="text/javascript" src="frontend/view/lang/translate.js"></script> -->
+    <!--========== TOASTR ==========-->
+    <link rel="stylesheet" href="https://npmcdn.com/angular-toastr/dist/angular-toastr.css" />
+    <script src="https://npmcdn.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+
+    <!--========== GLIDER ==========-->
+    <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css"/>
+    <!--========== CSS ==========-->
+    <link rel="stylesheet" href="frontend/view/assets/css/main.css">
+    <link rel="stylesheet" href="frontend/view/assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="frontend/view/assets/css/nonscript.css">
+    <link rel="stylesheet" href="frontend/module/home/view/home.css">
+    <!--========== FIREBASE ==========-->
+    <!-- <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script> -->
+</head>
+
+<body>
+    <div ng-include='"frontend/view/inc/header.view.html"'></div>
+    <!-- <div ng-include='"frontend/view/inc/menu.html"'></div> -->
+    <div ng-view autoscroll="true"></div>
+    <div ng-include='"frontend/view/inc/footer.view.html"'></div>
+</body>
+
+</html>
