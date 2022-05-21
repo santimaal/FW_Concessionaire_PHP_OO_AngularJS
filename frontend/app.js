@@ -14,11 +14,23 @@ app.config(['$routeProvider', '$locationProvider',
                     },
                     type: function (services) {
                         return services.get('home', 'homePageType');
+                    },
+                    books: function (services) {
+                        return services.get_api('https://www.googleapis.com/books/v1/volumes?q=Vehicles')
                     }
                 }
             }).when("/contact", {
                 templateUrl: "frontend/module/contact/view/contact.html",
                 controller: "controller_contact"
+            }).when("/shop", {
+                templateUrl: "frontend/module/shop/view/shop.html",
+                controller: "controller_shop",
+                resolve: {
+                    allcars: function (services) {
+                        // return"hola";
+                        return services.get('shop', 'allcars');
+                    }
+                }
             }).otherwise("/contact", {
                 templateUrl: "frontend/module/contact/view/contact.html",
                 controller: "controller_contact"

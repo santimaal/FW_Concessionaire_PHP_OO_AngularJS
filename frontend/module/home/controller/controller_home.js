@@ -1,9 +1,24 @@
-app.controller('controller_home', function ($scope, carousel, categoria, type) {
-    console.log(type);
+app.controller('controller_home', function ($scope, carousel, categoria, type, books) {
+    console.log(carousel);
+    console.log(books);
 
     $scope.carousel = carousel;
     $scope.cat = categoria;
     $scope.type = type;
+    $scope.books = books;
+
+    // $scope.category = function (cat) {
+    //     console.log("hola");
+    //     console.log(cat)
+    // }
+
+    $scope.catclick = function (cat) {
+        console.log(cat)
+    }
+
+    $scope.tpclick = function (type) {
+        console.log(type)
+    }
 
     // window.addEventListener('load', function () {
     //     new Glider(document.querySelector('.carousel__list'), {

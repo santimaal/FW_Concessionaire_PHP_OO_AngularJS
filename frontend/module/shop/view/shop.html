@@ -1,0 +1,53 @@
+<div id="list">
+    <div class="filterlist">
+        <b style="margin-bottom: 100px;">Puertas</b><br />
+        <input type="radio" id="2" class="puertas" name="puertas" value="2" />2<br />
+        <input type="radio" id="3" class="puertas" name="puertas" value="3" />3<br />
+        <input type="radio" id="4" class="puertas" name="puertas" value="4" />4<br />
+        <input type="radio" id="5" class="puertas" name="puertas" value="5" />5<br />
+        <br />
+        <b>Color</b><br />
+        <input type="checkbox" class="color" id="White" value="White" ng-model="check.white"/>White<br />
+        <input type="checkbox" class="color" id="Black" value="Black" ng-model="check.black"/>Black<br />
+        <input type="checkbox" class="color" id="Blue" value="Blue" ng-model="check.blue"/>Blue<br />
+        <input type="checkbox" class="color" id="Red" value="Red" ng-model="check.red"/>Red<br />
+        <input type="checkbox" class="color" id="Green" value="Green" ng-model="check.green"/>Green<br />
+        <input type="checkbox" class="color" id="Yellow" value="Yellow" ng-model="check.yellow" style="margin-bottom: 30px;" />Yellow<br />
+        <br />
+        <br />
+        <span>Marca selected: </span><br />
+        Nada<br />
+        <br />
+        <input type="submit" id="submit" name="aplicar" ng-click="filters()" />
+        <div id="orderby" class="orderby">
+            <b>Order</b><br />
+            <input type="radio" id="precio" name="order" value="precio" />Precio<br />
+            <input type="radio" id="km" name="order" value="km" />Km<br />
+            <input type="radio" id="cv" name="order" value="cv " />CV<br />
+            <input type="button" id="test" value="ASC" /><input type="submit" id="order" value="Aplicar" />
+            <input type="button" id="reset" name="reset" value="Reset All" /><br />
+        </div>
+    </div>
+    <div id="allcars" class="allcars">
+        <div id={{data.id}} class="listCar" ng-repeat="data in allcars">
+            <div class="like" id={{data.id}}></div>
+            <div id={{data.id}} class="clicklistcar">
+                <div class="title">
+                    <h3>{{data.marca}} {{data.modelo}}</h3>
+                    <ul>
+                        <li>Estado: {{data.estado}}</li>
+                        <li>FechaMatriculacion: {{data.fecha_matr}}</li>
+                        <li>Km: {{data.km}}</li>
+                        <li>Price: {{data.precio}}</li>
+                        <li>Cv: {{data.cv}}</li>
+                    </ul>
+                </div>
+                <div class="listimg">
+                    <img class="imgdiv" src="frontend/module/shop/view/productimg/{{data.img}}"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="frontend/module/shop/view/shop.css">

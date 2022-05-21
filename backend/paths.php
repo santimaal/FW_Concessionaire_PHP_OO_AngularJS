@@ -26,7 +26,9 @@ define('DAO_HOME', SITE_ROOT . 'backend/module/home/model/DAO/');
 
 //Shop
 define('VIEW_SHOP', SITE_ROOT . 'module/shop/view/');
-define('MODEL_SHOP', SITE_ROOT . 'module/shop/model/model/');
+define('MODEL_SHOP', SITE_ROOT . 'backend/module/shop/model/model/');
+define('BLL_SHOP', SITE_ROOT . 'backend/module/shop/model/BLL/');
+define('DAO_SHOP', SITE_ROOT . 'backend/module/shop/model/DAO/');
 
 //Search
 define('MODEL_SEARCH', SITE_ROOT . '/module/search/model/model/');

@@ -1,17 +1,28 @@
+<div class="carousel" style="margin-bottom: 100px;"></div>
 <div id="homePage">
     <div id="titles" class="row">
-        <h3>Categories<h3>
-                <div class="cat">
-                    <div class="services__content" ng-repeat="data in cat">
-                        <img class='carousel__img' src='frontend/module/home/view/category/{{data.img}}' alt=''
-                            style='max-width: 290px; height: 200px;'>
-                        <h3 class='carousel__img'>{{data.id}}</h3>
-                    </div>
-                </div>
+        <h3>Categories</h3>
+    </div>
+    <div id="containerCategories" class="row">
+        <div id={{data.id}} class="col-md-4 single-service-2" ng-repeat="data in cat">
+            <div class="inner" id={{data.id}} ng-click="catclick(data.id)">
+                <img class='carousel__img' src='frontend/module/home/view/category/{{data.img}}' alt=''
+                    style='max-width: 290px; height: 200px;'>
+                <h3 class='carousel__img' style="text-align: center;">{{data.id}}</h3>
+            </div>
+        </div>
     </div>
     <div id="titles" class="row">
         <h3>Types</h3>
     </div>
-    <div id="containerTypes" class="row"></div>
-    <div class="carousel__list">hola</div>
+    <div id="containerTypes" class="row">
+        <div id={{data.id}} class="col-md-4 single-service-2" ng-repeat="data in type">
+            <div class="inner" id={{data.id}} ng-click="tpclick(data.id)">
+                <img class='carousel__img' src='frontend/module/home/view/type/{{data.img}}' alt=''
+                    style='max-width: 290px; height: 200px;'>
+                <h3 class='carousel__img' style="text-align: center;">{{data.id}}</h3>
+            </div>
+        </div>
+    </div>
 </div>
+<link rel="stylesheet" href="frontend/module/home/view/home.css">
