@@ -9,7 +9,7 @@ class controller_shop
 
     function filters()
     {
-        echo json_encode(common::load_model('shop_model', 'get_list_filters_products', [$_GET['puertas'], $_GET['color'], $_GET['marca']]));
+        echo json_encode(common::load_model('shop_model', 'get_list_filters_products', [$_POST['puertas'], $_POST['color'], $_POST['marca']]));
     }
 
     function get_pagination()

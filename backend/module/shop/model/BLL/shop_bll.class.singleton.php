@@ -38,7 +38,7 @@ class shop_bll
 
 		if ($color != 'all' && $puertas == 'a') {
 			$filters = "";
-			$prueba = explode(",", $color);
+			$prueba = $color;
 			for ($i = 0; $i < sizeof($prueba); $i++) {
 				if ($i == 0) {
 					$filters .= "(color = '" . $prueba[$i] . "'";
