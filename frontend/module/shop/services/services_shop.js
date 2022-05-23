@@ -8,6 +8,7 @@ app.factory('services_shop', ['services', '$rootScope', function (services, $roo
         .then(function(response) {
             console.log(response);
             $rootScope.allcars = response;
+            
            // pagination(response);
         }, function(error) {
             console.log(error);

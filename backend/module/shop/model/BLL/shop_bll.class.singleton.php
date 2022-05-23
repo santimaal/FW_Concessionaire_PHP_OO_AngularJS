@@ -54,19 +54,22 @@ class shop_bll
 		} else if ($color == 'all' && $puertas != 'a') {
 			$filters = "puertas=" . $puertas;
 		} else {
-			$filters = "puertas=" . $puertas . " AND ";
-
-			$prueba = explode(",", $color);
-			for ($i = 0; $i < sizeof($prueba); $i++) {
-				if ($i == 0) {
-					$filters .= "(color = '" . $prueba[$i] . "'";
-				} else  if ($i == (sizeof($prueba) - 1)) {
-					$filters .= " OR color = '" . $prueba[$i] . "')";
-				} else {
-					$filters .= " OR color = '" . $prueba[$i] . "'";
-				}
-				if (sizeof($prueba) == 1) {
-					$filters .= ")";
+			if ($color == 'all' && $puertas == 'a') {
+				$sql = '';
+			} else {
+				$filters = "puertas=" . $puertas . " AND ";
+				$prueba = $color;
+				for ($i = 0; $i < sizeof($prueba); $i++) {
+					if ($i == 0) {
+						$filters .= "(color = '" . $prueba[$i] . "'";
+					} else  if ($i == (sizeof($prueba) - 1)) {
+						$filters .= " OR color = '" . $prueba[$i] . "')";
+					} else {
+						$filters .= " OR color = '" . $prueba[$i] . "'";
+					}
+					if (sizeof($prueba) == 1) {
+						$filters .= ")";
+					}
 				}
 			}
 		}

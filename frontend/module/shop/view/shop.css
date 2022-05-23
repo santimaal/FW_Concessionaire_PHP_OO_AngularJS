@@ -117,6 +117,7 @@ input {
 }
 
 .filterlist {
+    position: fixed;
     float: left;
     display: inline;
     width: 130px;
