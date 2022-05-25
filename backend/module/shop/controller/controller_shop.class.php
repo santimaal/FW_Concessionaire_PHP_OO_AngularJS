@@ -19,7 +19,7 @@ class controller_shop
 
     function details()
     {
-        echo json_encode(common::load_model('shop_model', 'get_details', $_GET['id']));
+        echo json_encode(common::load_model('shop_model', 'get_details', $_POST['id']));
     }
 
     function sum_visit()

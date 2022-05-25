@@ -1,18 +1,22 @@
 <div id="list">
-    <div class="filterlist">
+    <div class="filterlist" ng-show="filterlist">
         <b style="margin-bottom: 100px;">Puertas</b><br />
-        <input type="radio" id="2" class="puertas" name="puertas" value="2" ng-model="radio.dos" ng-checked="dos"/>2<br />
-        <input type="radio" id="3" class="puertas" name="puertas" value="3" ng-model="radio.tres" ng-checked="3"/>3<br />
-        <input type="radio" id="4" class="puertas" name="puertas" value="4" ng-model="radio.cuatro" ng-checked="4"/>4<br />
-        <input type="radio" id="5" class="puertas" name="puertas" value="5" ng-model="radio.cinco" ng-checked="5"/>5<br />
+        <input type="radio" id="2" class="puertas" name="puertas" value="2" ng-model="radio.dos" />2<br />
+        <input type="radio" id="3" class="puertas" name="puertas" value="3" ng-model="radio.tres" />3<br />
+        <input type="radio" id="4" class="puertas" name="puertas" value="4" ng-model="radio.cuatro" />4<br />
+        <input type="radio" id="5" class="puertas" name="puertas" value="5" ng-model="radio.cinco" />5<br />
         <br />
         <b>Color</b><br />
-        <input type="checkbox" class="color" id="White" value="White" ng-model="check.white" ng-checked="white" />White<br />
-        <input type="checkbox" class="color" id="Black" value="Black" ng-model="check.black" ng-checked="black"/>Black<br />
-        <input type="checkbox" class="color" id="Blue" value="Blue" ng-model="check.blue" ng-checked="blue"/>Blue<br />
-        <input type="checkbox" class="color" id="Red" value="Red" ng-model="check.red" ng-checked="red"/>Red<br />
-        <input type="checkbox" class="color" id="Green" value="Green" ng-model="check.green" ng-checked="green"/>Green<br />
-        <input type="checkbox" class="color" id="Yellow" value="Yellow" ng-model="check.yellow" ng-checked="yellow" style="margin-bottom: 30px;" />Yellow<br />
+        <input type="checkbox" class="color" id="White" value="White" ng-model="check.white"
+            ng-checked="white" />White<br />
+        <input type="checkbox" class="color" id="Black" value="Black" ng-model="check.black"
+            ng-checked="black" />Black<br />
+        <input type="checkbox" class="color" id="Blue" value="Blue" ng-model="check.blue" ng-checked="blue" />Blue<br />
+        <input type="checkbox" class="color" id="Red" value="Red" ng-model="check.red" ng-checked="red" />Red<br />
+        <input type="checkbox" class="color" id="Green" value="Green" ng-model="check.green"
+            ng-checked="green" />Green<br />
+        <input type="checkbox" class="color" id="Yellow" value="Yellow" ng-model="check.yellow" ng-checked="yellow"
+            style="margin-bottom: 30px;" />Yellow<br />
         <br />
         <br />
         <span>Marca selected: </span><br />
@@ -28,10 +32,10 @@
             <input type="button" id="reset" name="reset" value="Reset All" ng-click="reset_all()" /><br />
         </div>
     </div>
-    <div id="allcars" class="allcars">
+    <div id="allcars" class="allcars" ng-show="show_allcars">
         <div id={{data.id}} class="listCar" ng-repeat="data in allcars">
             <div class="like" id={{data.id}}></div>
-            <div id={{data.id}} class="clicklistcar" ng-click="details(id)">
+            <div id={{data.id}} class="clicklistcar" ng-click="details(data.id)">
                 <div class="title">
                     <h3>{{data.marca}} {{data.modelo}}</h3>
                     <ul>
@@ -43,9 +47,43 @@
                     </ul>
                 </div>
                 <div class="listimg">
-                    <img class="imgdiv" src="frontend/module/shop/view/productimg/{{data.img}}"/>
+                    <img class="imgdiv" src="frontend/module/shop/view/productimg/{{data.img}}" />
                 </div>
             </div>
+        </div>
+    </div>
+    <div id="details" ng-show="show_details">
+        <div id="detail">
+            <div class="images"></div>
+            <div class="details">
+                <div class="like" id></div>
+                
+                <table class="conf">
+                    <tbody>
+                        <tr>
+                            <td>{{details1[0][0].marca}} {{details1[0][0].modelo}}</td>
+                            <td>Category: {{details1[0].estado}}</td>
+                        </tr>
+                        <tr>
+                            <td>Type: {{details1[0][0].tipo}}</td>
+                            <td>City: {{details1[0][0].city}}</td>
+                        </tr>
+                        <tr>
+                            <td>Fecha Matriculacion: {{details1[0][0].fecha_matr}}</td>
+                            <td>Color: {{details1[0][0].color}}</td>
+                        </tr>
+                        <tr>
+                            <td>Cv: {{details1[0][0].cv}}</td>
+                            <td>Precio: {{details1[0][0].precio}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div id="map_details"></div>
+
+            <div class="related"></div>
+            <div class="morebtn"></div>
         </div>
     </div>
 </div>

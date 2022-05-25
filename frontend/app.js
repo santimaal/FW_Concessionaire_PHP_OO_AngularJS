@@ -31,6 +31,12 @@ app.config(['$routeProvider', '$locationProvider',
                         return services.get('shop', 'allcars');
                     }
                 }
+            }).when("/shop/:id", {
+                templateUrl: "frontend/module/shop/view/shop.html",
+                controller: "controller_shop",
+                resolve: {
+                    allcars: function () {}
+                }
             }).otherwise("/contact", {
                 templateUrl: "frontend/module/contact/view/contact.html",
                 controller: "controller_contact"
