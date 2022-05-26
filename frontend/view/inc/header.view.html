@@ -13,9 +13,9 @@
 						<div id="autosearch" class="autosearch">
 							<input id="autocom" class="autocom" type="text" ng-model="autocomplete" ng-change="click_autocomplete()"/>
 							<div id="search_auto" class="search_auto">
-								<div class="searchElement" id="{{data.id}}" ng-repeat="data in srchauto">{{data.marca}} {{data.modelo}}</div>
+								<div class="searchElement" id="{{data.id}}" ng-show="show_search" ng-repeat="data in srchauto" ng-click="click_prod(data.id)">{{data.marca}} {{data.modelo}}</div>
 							</div>
-							<img id="searchimg" class="searchimg" src="frontend/view/img/search.png"> 
+							<img id="searchimg" class="searchimg" src="frontend/view/img/search.png" ng-click="search()"> 
 						</div>
 					</div>
 					<nav id="nav">  

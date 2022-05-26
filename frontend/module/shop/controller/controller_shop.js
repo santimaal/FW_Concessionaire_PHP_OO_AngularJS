@@ -4,6 +4,10 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
     $scope.show_allcars = false;
     $scope.show_details = false;
     $scope.details = allcars;
+
+    var srchbrand = localStorage.getItem('marca') || false;
+    var srchcity = localStorage.getItem('city') || false;
+    var srchkeyup = localStorage.getItem('keyup') || false;
     // $scope.show_details = false;
     // if ($scope.details) {
     // $scope.show_details = true;
@@ -12,6 +16,13 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
     if ($routeParams.id) {
         $scope.show_details = true;
         services_shop.details($routeParams.id);
+    } else if (srchbrand != false | srchcity != false | srchkeyup != false) {
+        $scope.show_allcars = true;
+        $scope.filterlist = true;
+        services_shop.search();
+        localStorage.removeItem('marca');
+        localStorage.removeItem('city');
+        localStorage.removeItem('keyup');
     } else if (!localStorage.getItem('filters')) {
         $scope.show_allcars = true;
         $scope.filterlist = true;
@@ -82,6 +93,9 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
     $scope.reset_all = function () {
         localStorage.removeItem('filters');
         localStorage.removeItem('marcas');
+        localStorage.removeItem('marca');
+        localStorage.removeItem('city');
+        localStorage.removeItem('keyup');
         $window.location.reload();
     }
 

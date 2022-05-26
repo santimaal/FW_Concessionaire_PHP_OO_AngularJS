@@ -43,7 +43,7 @@ app.config(['$routeProvider', '$locationProvider',
             });
     }]);
 
-app.run(function ($rootScope, services, services_search) {
+app.run(function ($rootScope, services, services_search, $window) {
     localStorage.removeItem('marca');
     localStorage.removeItem('city');
     localStorage.removeItem('autocomplete');
@@ -63,8 +63,19 @@ app.run(function ($rootScope, services, services_search) {
     }
 
     $rootScope.click_autocomplete = function () {
-        console.log(this.autocomplete);
+        localStorage.setItem('keyup', this.autocomplete);
+        $rootScope.show_search= true;
         services_search.srch_autocomplete(this.marca, this.city, this.autocomplete);
+    }
+
+    $rootScope.click_prod = function (idcar) {
+        $rootScope.show_search= false;
+        $window.location.href = '#/shop/' + idcar;
+    }
+
+    $rootScope.search = function () {
+        $rootScope.show_search= false;
+        $window.location.href = '#/shop/';
     }
 
     // $rootScope.click_autocomplete = function(sexo = undefined, categoria = undefined, autocomplete){
