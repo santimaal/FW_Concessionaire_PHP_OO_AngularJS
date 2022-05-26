@@ -8,7 +8,7 @@
         <br />
         <b>Color</b><br />
         <input type="checkbox" class="color" id="White" value="White" ng-model="check.white"
-            ng-checked="white" />White<br />
+            ng-checked="white" ng-change="prueba('white', check.white)"/>White<br />
         <input type="checkbox" class="color" id="Black" value="Black" ng-model="check.black"
             ng-checked="black" />Black<br />
         <input type="checkbox" class="color" id="Blue" value="Blue" ng-model="check.blue" ng-checked="blue" />Blue<br />
@@ -62,7 +62,7 @@
                     <tbody>
                         <tr>
                             <td>{{details1[0][0].marca}} {{details1[0][0].modelo}}</td>
-                            <td>Category: {{details1[0].estado}}</td>
+                            <td>Category: {{details1[0][0].estado}}</td>
                         </tr>
                         <tr>
                             <td>Type: {{details1[0][0].tipo}}</td>

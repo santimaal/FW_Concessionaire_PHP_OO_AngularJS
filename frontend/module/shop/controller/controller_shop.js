@@ -1,26 +1,24 @@
-app.controller('controller_shop', function ($scope, allcars, services_shop, $window) {
+app.controller('controller_shop', function ($scope, allcars, services_shop, $window, $routeParams) {
+    console.log($routeParams.id);
     $scope.filterlist = false;
     $scope.show_allcars = false;
-    $scope.show_details=false;
+    $scope.show_details = false;
     $scope.details = allcars;
     // $scope.show_details = false;
     // if ($scope.details) {
     // $scope.show_details = true;
     // $scope.show_allcars = false;
     // }
-    if (localStorage.getItem('details')) {
-        $scope.show_details=true;
-        services_shop.details(localStorage.getItem('details'));
-        localStorage.removeItem('details');
+    if ($routeParams.id) {
+        $scope.show_details = true;
+        services_shop.details($routeParams.id);
     } else if (!localStorage.getItem('filters')) {
         $scope.show_allcars = true;
         $scope.filterlist = true;
-        localStorage.removeItem('details');
         $scope.allcars = allcars;
     } else {
-        $scope.show_allcars=true;
+        $scope.show_allcars = true;
         $scope.filterlist = true;
-        localStorage.removeItem('details');
         var todo = JSON.parse(localStorage.getItem('filters'));
         var puertas = todo[0].puertas[0];
         var color = todo[1].color;
@@ -60,8 +58,9 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
                 color.push(name);
             }
             // if (value == false) {
-            //     console.log("hola");
-            //     console.log(color.pull(name));
+            //     // console.log("hola");
+            //     delete color[name];
+            //     // console.log(color.pull(name));
             // }
             console.log(color);
         });
@@ -73,17 +72,11 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
         }
         localStorage.setItem('filters', JSON.stringify(filters));
         console.log(filters)
-        // setInterval(function () {
-            // $window.location.reload()
-        // }, 10000);
-
-
+        $window.location.reload()
     }
 
     $scope.details = function (id) {
-        localStorage.setItem('details', id);
-        // services_shop.details(id);
-        $window.location.href = '#/shop/'+id;
+        $window.location.href = '#/shop/' + id;
     }
 
     $scope.reset_all = function () {
@@ -91,8 +84,9 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
         localStorage.removeItem('marcas');
         $window.location.reload();
     }
-&
+
     function highlight() {
+        console.log("hoa");
         const filters = JSON.parse(localStorage.getItem('filters'));
         const color = filters[1].color;
         // $scope[dos] = {checked : true};
@@ -103,6 +97,18 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
             // $scope[check[color[row]]] = true;
         }
         console.log("high");
+    }
+
+    $scope.prueba = function (color, check) {
+        let pruebas = [];
+        console.log(color);
+        if (check == true) {
+            pruebas.push(color);
+            console.log(pruebas);
+        } else {
+            delete pruebas[color];
+            console.log(pruebas);
+        }
     }
 
 

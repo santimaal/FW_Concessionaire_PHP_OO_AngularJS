@@ -2,6 +2,13 @@
 <header id="header">
 					<h1 id="logo"><a href="index.php?page=shop&op=list"><img src="frontend/view/img/pic01.png" height="60"/></a></h1>
 					<div id="search" style="padding-left: 130px;">
+						<select class="marcassearch" ng-model="marca" ng-change="click_marca()">
+							<option value="" selected disabled hidden>Brand</option>
+							<!-- <option value="prueba" ng>prueba</option> -->
+							<option id="{{data.id}}" value="{{data.id}}" ng-repeat="data in srchmarca">{{data.id}}</option>
+						</select>
+						<!-- <select class="ciudadsearch" value="Ciudad"></select> -->
+						<div></div>
 					</div>
 					<nav id="nav">  
 						<ul id="nav_op">
@@ -21,5 +28,5 @@
 
 </div>
 
-<!-- <script src="module/search/model/controller_search.js"></script>
-<link rel="stylesheet" href="module/search/view/css/search.css"> -->
+<!-- <script src="module/search/model/controller_search.js"></script> -->
+<link rel="stylesheet" href="frontend/module/search/view/search.css">

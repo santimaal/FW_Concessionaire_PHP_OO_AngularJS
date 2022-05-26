@@ -31,7 +31,10 @@ define('BLL_SHOP', SITE_ROOT . 'backend/module/shop/model/BLL/');
 define('DAO_SHOP', SITE_ROOT . 'backend/module/shop/model/DAO/');
 
 //Search
-define('MODEL_SEARCH', SITE_ROOT . '/module/search/model/model/');
+define('VIEW_SEARCH', SITE_ROOT . 'module/search/view/');
+define('MODEL_SEARCH', SITE_ROOT . 'backend/module/search/model/model/');
+define('BLL_SEARCH', SITE_ROOT . 'backend/module/search/model/BLL/');
+define('DAO_SEARCH', SITE_ROOT . 'backend/module/search/model/DAO/');
 
 //Login
 define('VIEW_LOGIN', SITE_ROOT . 'module/login/view/');
