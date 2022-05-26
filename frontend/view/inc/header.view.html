@@ -4,11 +4,19 @@
 					<div id="search" style="padding-left: 130px;">
 						<select class="marcassearch" ng-model="marca" ng-change="click_marca()">
 							<option value="" selected disabled hidden>Brand</option>
-							<!-- <option value="prueba" ng>prueba</option> -->
 							<option id="{{data.id}}" value="{{data.id}}" ng-repeat="data in srchmarca">{{data.id}}</option>
 						</select>
-						<!-- <select class="ciudadsearch" value="Ciudad"></select> -->
-						<div></div>
+						<select class="ciudadsearch" ng-model="city" ng-change="click_city()">
+							<option value="" selected disabled hidden>City</option>
+							<option id="{{data.city}}" value="{{data.city}}" ng-repeat="data in srchcity">{{data.city}}</option>
+						</select>
+						<div id="autosearch" class="autosearch">
+							<input id="autocom" class="autocom" type="text" ng-model="autocomplete" ng-change="click_autocomplete()"/>
+							<div id="search_auto" class="search_auto">
+								<div class="searchElement" id="{{data.id}}" ng-repeat="data in srchauto">{{data.marca}} {{data.modelo}}</div>
+							</div>
+							<img id="searchimg" class="searchimg" src="frontend/view/img/search.png"> 
+						</div>
 					</div>
 					<nav id="nav">  
 						<ul id="nav_op">

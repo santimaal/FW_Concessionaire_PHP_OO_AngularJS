@@ -35,7 +35,7 @@ app.config(['$routeProvider', '$locationProvider',
                 templateUrl: "frontend/module/shop/view/shop.html",
                 controller: "controller_shop",
                 resolve: {
-                    allcars: function () {}
+                    allcars: function () { }
                 }
             }).otherwise("/contact", {
                 templateUrl: "frontend/module/contact/view/contact.html",
@@ -43,20 +43,35 @@ app.config(['$routeProvider', '$locationProvider',
             });
     }]);
 
-    app.run(function($rootScope, services, services_search){
+app.run(function ($rootScope, services, services_search) {
+    localStorage.removeItem('marca');
+    localStorage.removeItem('city');
+    localStorage.removeItem('autocomplete');
 
-        services_search.srch_marca();
-    
-        $rootScope.click_marca = function(){
-            // console.log("hola");
-            console.log(this.marca);
-        }
-    
-        // $rootScope.click_autocomplete = function(sexo = undefined, categoria = undefined, autocomplete){
-        //     services_search.search_autocomplete(sexo, categoria, autocomplete);
-        // }
-    
-        // $rootScope.click_search = function(sexo = undefined, categoria = undefined, autocomplete = undefined){ 
-        //     services_search.search(sexo, categoria, autocomplete);
-        // }
-    });
+    services_search.srch_marca();
+    services_search.srch_city();
+
+    $rootScope.click_marca = function () {
+        services_search.srch_city(this.marca);
+        localStorage.setItem('marca', this.marca);
+        localStorage.removeItem('city');
+        console.log(this.marca);
+    }
+
+    $rootScope.click_city = function () {
+        localStorage.setItem('city', this.city);
+    }
+
+    $rootScope.click_autocomplete = function () {
+        console.log(this.autocomplete);
+        services_search.srch_autocomplete(this.marca, this.city, this.autocomplete);
+    }
+
+    // $rootScope.click_autocomplete = function(sexo = undefined, categoria = undefined, autocomplete){
+    //     services_search.search_autocomplete(sexo, categoria, autocomplete);
+    // }
+
+    // $rootScope.click_search = function(sexo = undefined, categoria = undefined, autocomplete = undefined){ 
+    //     services_search.search(sexo, categoria, autocomplete);
+    // }
+});

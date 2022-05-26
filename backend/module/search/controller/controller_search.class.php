@@ -8,7 +8,7 @@ class controller_search
 
     function ciudades_m()
     {
-        echo json_encode(common::load_model('search_model', 'get_ciudades', $_GET['marca']));
+        echo json_encode(common::load_model('search_model', 'get_ciudades', $_POST['marca']));
     }
 
     function ciudades()
@@ -18,6 +18,6 @@ class controller_search
 
     function autocomplete()
     {
-        echo json_encode(common::load_model('search_model', 'get_autocomplete', [$_GET['auto'], $_GET['marca'], $_GET['city']]));
+        echo json_encode(common::load_model('search_model', 'get_autocomplete', [$_POST['auto'], $_POST['marca'], $_POST['city']]));
     }
 }

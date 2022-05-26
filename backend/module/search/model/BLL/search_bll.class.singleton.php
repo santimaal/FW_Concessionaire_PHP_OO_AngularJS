@@ -38,13 +38,13 @@ class search_bll
 
 	public function get_autocomplete_BLL($auto = null, $marca = null, $city = null)
 	{
-		if ($marca == 'null' && $city == 'null' && $auto == 'null') {
+		if ($marca == '' && $city == '' && $auto == '') {
 			$sql = "SELECT * FROM cars;";
-		} else if ($marca == 'null' && $city == 'null') {
+		} else if ($marca == '' && $city == '') {
 			$sql = "SELECT * FROM cars WHERE modelo LIKE '" . $auto . "%' OR marca LIKE '" . $auto . "%';";
-		} else if ($marca != 'null' && $city == 'null') {
+		} else if ($marca != '' && $city == '') {
 			$sql = "SELECT * FROM cars WHERE marca='" . $marca . "' AND (modelo LIKE '" . $auto . "%' OR marca LIKE '" . $auto . "%');";
-		} else if ($marca != 'null' && $city != 'null') {
+		} else if ($marca != '' && $city != '') {
 			$sql = "SELECT * FROM cars WHERE marca='" . $marca . "' AND city='" . $city . "' AND (modelo LIKE '" . $auto . "%' OR marca LIKE '" . $auto . "%');";
 		} else {
 			$sql = "SELECT * FROM cars WHERE city='" . $city . "' AND (modelo LIKE '" . $auto . "%' OR marca LIKE '" . $auto . "%');";
