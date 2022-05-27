@@ -1,12 +1,13 @@
 app.controller('controller_home', function ($scope, carousel, categoria, type, books, $window) {
     console.log(carousel);
     console.log(books);
-
+    $scope.show_btnmore = true;
     $scope.carousel = carousel;
     $scope.cat = categoria;
     $scope.type = type;
     $scope.books = books;
     $scope.myInterval = 3000;
+    newsfor();
 
     $scope.catclick = function (cat) {
         console.log(cat)
@@ -26,40 +27,32 @@ app.controller('controller_home', function ($scope, carousel, categoria, type, b
         $window.location.href = '#/shop';
     }
 
-    // window.addEventListener('load', function () {
-    //     new Glider(document.querySelector('.carousel__list'), {
-    //         slidesToShow: 1,
-    //         dots: '.carousel__indicator',
-    //         draggable: true,
-    //         arrows: {
-    //             prev: '.carousel__prev',
-    //             next: '.carousel__next'
-    //         }
-    //     });
-    // });
+    $scope.click_book = function (book) {
+        // console.log(book.volumeInfo.infoLink)
+        window.open(book.volumeInfo.infoLink)
+    }
 
-    // angular.element($window).on('mousewheel', function () {
-    //     let footerHeight = document.getElementById('container-footer').offsetHeight;
-    //     let position = $window.scrollY + footerHeight;
-    //     let bottom = document.body.scrollHeight - $window.innerHeight;
 
-    //     if (position >= bottom) {
-    //         if (loaded < total) {
-    //             loaded += 3;
-    //             $scope.brands = brands.slice(0, loaded);
-    //             $scope.$apply();
-    //         } else {
-    //             angular.element($window).off('mousewheel');
-    //         }
-    //     }
-    // });
+    function newsfor(num = 4) {
+        let limit = num;
+        let book = [];
 
-    // $scope.redirect_shop = function (key, value) {
-    //     var filters = [];
-    //     filters.push({ key: key, value: [value] });
-    //     localStorage.removeItem('filters');
-    //     localStorage.setItem('filters', JSON.stringify(filters));
-    //     location.href = "#/shop";
-    // };
+
+
+        for (i = 0; i < limit; i++) {
+            if (books.items[i] != undefined) {
+                book.push(books.items[i]);
+            } else {
+                i = limit - 1;
+                $scope.show_btnmore = false;
+            }
+            console.log(book);
+        }
+        $scope.news = book;
+
+        $scope.click_more = function () {
+            newsfor(limit + 4);
+        }
+    }
 
 });

@@ -1,7 +1,8 @@
 <div class="carousel" style="margin-bottom: 100px; margin-top: 80px;">
     <carousel interval="myInterval" no-wrap="noWrapSlides">
         <slide ng-repeat="data in carousel">
-            <img id="carousel__img" ng-click="brdclick(data.id)" src="frontend/module/home/view/marimg/{{data.img}}" style="height: 200px; margin:auto; margin-bottom: 90px;">
+            <img id="carousel__img" ng-click="brdclick(data.id)" src="frontend/module/home/view/marimg/{{data.img}}"
+                style="height: 200px; margin:auto; margin-bottom: 90px;">
         </slide>
     </carousel>
 </div>
@@ -30,5 +31,14 @@
             </div>
         </div>
     </div>
+</div>
+<h3 class="newtitle"><b>BOOKS</b></h3>
+<div class="news">
+    <div class="new" ng-repeat="data in news" ng-click="click_book(data)">
+        <!-- <h3>{{news.items.volumeInfo.imageLinks.smallThumbnail}}</h3> -->
+        <img src="{{data.volumeInfo.imageLinks.smallThumbnail}}"/>
+        {{data.volumeInfo.title}}
+    </div>
+    <input class="btonmore" type="button" value="More" ng-click="click_more()" ng-show="show_btnmore">
 </div>
 <link rel="stylesheet" href="frontend/module/home/view/home.css">
