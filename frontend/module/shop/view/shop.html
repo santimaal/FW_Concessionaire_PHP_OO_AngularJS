@@ -7,8 +7,8 @@
         <input type="radio" id="5" class="puertas" name="puertas" value="5" ng-model="radio.cinco" />5<br />
         <br />
         <b>Color</b><br />
-        <input type="checkbox" class="color" id="White" value="White" ng-model="check.white"
-            ng-checked="white" ng-change="prueba('white', check.white)"/>White<br />
+        <input type="checkbox" class="color" id="White" value="White" ng-model="check.white" ng-checked="white"
+            ng-change="prueba('white', check.white)" />White<br />
         <input type="checkbox" class="color" id="Black" value="Black" ng-model="check.black"
             ng-checked="black" />Black<br />
         <input type="checkbox" class="color" id="Blue" value="Blue" ng-model="check.blue" ng-checked="blue" />Blue<br />
@@ -54,10 +54,16 @@
     </div>
     <div id="details" ng-show="show_details">
         <div id="detail">
-            <div class="images"></div>
+            <div class="images" style="width: 700px; float: left;">
+                <carousel interval="myInterval" no-wrap="noWrapSlides">
+                    <slide ng-repeat="data in details1[1][0]">
+                        <img src="frontend/module/shop/view/productimg/{{data.img}}">
+                    </slide>
+                </carousel>
+            </div>
             <div class="details">
                 <div class="like" id></div>
-                
+
                 <table class="conf">
                     <tbody>
                         <tr>

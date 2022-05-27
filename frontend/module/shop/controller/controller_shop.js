@@ -3,6 +3,7 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
     $scope.filterlist = false;
     $scope.show_allcars = false;
     $scope.show_details = false;
+    $scope.myInterval = 5000;
     $scope.details = allcars;
 
     var srchbrand = localStorage.getItem('marca') || false;

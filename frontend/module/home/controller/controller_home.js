@@ -6,6 +6,7 @@ app.controller('controller_home', function ($scope, carousel, categoria, type, b
     $scope.cat = categoria;
     $scope.type = type;
     $scope.books = books;
+    $scope.myInterval = 3000;
 
     // $scope.category = function (cat) {
     //     console.log("hola");

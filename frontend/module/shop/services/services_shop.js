@@ -18,10 +18,7 @@ app.factory('services_shop', ['services', '$rootScope', function (services, $roo
     function details(idcar) {
         services.post('shop', 'details', { 'id': idcar })
             .then(function (response) {
-                console.log(response[0][0]);
                 $rootScope.details1 = response;
-
-                // pagination(response);
             }, function (error) {
                 console.log(error);
             });
