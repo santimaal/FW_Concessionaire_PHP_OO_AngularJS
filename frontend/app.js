@@ -1,4 +1,4 @@
-var app = angular.module('angular_js', ['ngRoute', 'toastr']);
+var app = angular.module('angular_js', ['ngRoute', 'toastr', 'ui.bootstrap']);
 app.config(['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {
         $routeProvider

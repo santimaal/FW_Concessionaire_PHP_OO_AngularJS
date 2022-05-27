@@ -1,4 +1,10 @@
-<div class="carousel" style="margin-bottom: 100px;"></div>
+<div class="carousel" style="margin-bottom: 100px; margin-top: 80px;">
+    <carousel interval="myInterval" no-wrap="noWrapSlides">
+        <slide ng-repeat="data in carousel">
+            <img id="carousel__img" src="frontend/module/home/view/marimg/{{data.img}}" style="height: 200px; margin:auto; margin-bottom: 90px;">
+        </slide>
+    </carousel>
+</div>
 <div id="homePage">
     <div id="titles" class="row">
         <h3>Categories</h3>

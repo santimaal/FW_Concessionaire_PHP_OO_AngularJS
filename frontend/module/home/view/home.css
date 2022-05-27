@@ -1,3 +1,6 @@
+.carousel {
+    margin-top: 300px;
+}
 .carousel__list {
     text-align: center; 
     margin: 50px 50px 0px 50px;
@@ -29,6 +32,10 @@
     margin-bottom: 10px;
     margin-left: 50%;
     transform: translateX(-50%);
+}
+
+#carousel__img {
+    width: 150px!important;
 }
 
 #containerCategories, #containerTypes {
