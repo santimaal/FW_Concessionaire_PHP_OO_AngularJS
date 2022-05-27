@@ -1,5 +1,5 @@
 app.factory('services_shop', ['services', '$rootScope', function (services, $rootScope) {
-    let service = { filters, details, search }
+    let service = { filters, details, search, srchtype, srchcat }
     return service;
 
     function filters(puertas, color, marca) {
@@ -33,4 +33,25 @@ app.factory('services_shop', ['services', '$rootScope', function (services, $roo
                 console.log(error);
             });
     }
+
+    function srchtype(type) {
+        services.post('shop', 'filttype', { 'type': type })
+            .then(function (response) {
+                console.log(response);
+                $rootScope.allcars = response;
+            }, function (error) {
+                console.log(error);
+            });
+    }
+
+    function srchcat(cat) {
+        services.post('shop', 'filtcategory', { 'category': cat })
+            .then(function (response) {
+                // console.log(response);
+                $rootScope.allcars = response;
+            }, function (error) {
+                console.log(error);
+            });
+    }
+
 }])

@@ -57,10 +57,10 @@ class controller_shop
     }
     function filtcategory()
     {
-        echo json_encode(common::load_model('shop_model', 'get_filtcategory', $_GET['category']));
+        echo json_encode(common::load_model('shop_model', 'get_filtcategory', $_POST['category']));
     }
     function filttype()
     {
-        echo json_encode(common::load_model('shop_model', 'get_filttype', $_GET['type']));
+        echo json_encode(common::load_model('shop_model', 'get_filttype', $_POST['type']));
     }
 }

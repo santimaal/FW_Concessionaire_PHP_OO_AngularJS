@@ -1,4 +1,4 @@
-app.controller('controller_home', function ($scope, carousel, categoria, type, books) {
+app.controller('controller_home', function ($scope, carousel, categoria, type, books, $window) {
     console.log(carousel);
     console.log(books);
 
@@ -8,17 +8,22 @@ app.controller('controller_home', function ($scope, carousel, categoria, type, b
     $scope.books = books;
     $scope.myInterval = 3000;
 
-    // $scope.category = function (cat) {
-    //     console.log("hola");
-    //     console.log(cat)
-    // }
-
     $scope.catclick = function (cat) {
         console.log(cat)
+        localStorage.setItem('category', cat);
+        $window.location.href = '#/shop';
     }
 
     $scope.tpclick = function (type) {
         console.log(type)
+        localStorage.setItem('type', type);
+        $window.location.href = '#/shop';
+    }
+
+    $scope.brdclick = function (brd) {
+        console.log(brd)
+        localStorage.setItem('marca', brd);
+        $window.location.href = '#/shop';
     }
 
     // window.addEventListener('load', function () {

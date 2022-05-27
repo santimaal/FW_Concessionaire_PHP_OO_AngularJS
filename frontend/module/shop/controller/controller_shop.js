@@ -9,6 +9,8 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
     var srchbrand = localStorage.getItem('marca') || false;
     var srchcity = localStorage.getItem('city') || false;
     var srchkeyup = localStorage.getItem('keyup') || false;
+    var type = localStorage.getItem('type') || false;
+    var category = localStorage.getItem('category') || false;
     // $scope.show_details = false;
     // if ($scope.details) {
     // $scope.show_details = true;
@@ -17,6 +19,16 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
     if ($routeParams.id) {
         $scope.show_details = true;
         services_shop.details($routeParams.id);
+    } else if (type != false | category != false) {
+        $scope.show_allcars = true;
+        $scope.filterlist = true;
+        if (type != false) {
+            services_shop.srchtype(localStorage.getItem('type'));
+        } else {
+            services_shop.srchcat(localStorage.getItem('category'));
+        }
+        localStorage.removeItem('type');
+        localStorage.removeItem('category');
     } else if (srchbrand != false | srchcity != false | srchkeyup != false) {
         $scope.show_allcars = true;
         $scope.filterlist = true;
@@ -101,7 +113,6 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
     }
 
     function highlight() {
-        console.log("hoa");
         const filters = JSON.parse(localStorage.getItem('filters'));
         const color = filters[1].color;
         // $scope[dos] = {checked : true};
