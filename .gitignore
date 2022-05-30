@@ -1,6 +1,5 @@
 DB/db.ini
 backend/model/jwt.ini
-backend/model/mailgun.ini
+backend/model/newmailgun.ini
 **.ini
 .dockerignore
-backend/model/test.ini
