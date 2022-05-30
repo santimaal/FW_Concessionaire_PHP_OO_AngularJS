@@ -37,6 +37,12 @@ app.config(['$routeProvider', '$locationProvider',
                 resolve: {
                     allcars: function () { }
                 }
+            }).when("/login", {
+                templateUrl: "frontend/module/login/view/login.html",
+                controller: "controller_login"
+            }).when("/register", {
+                templateUrl: "frontend/module/login/view/register.html",
+                controller: "controller_register"
             }).otherwise("/contact", {
                 templateUrl: "frontend/module/contact/view/contact.html",
                 controller: "controller_contact"
@@ -63,18 +69,20 @@ app.run(function ($rootScope, services, services_search, $window) {
     }
 
     $rootScope.click_autocomplete = function () {
-        localStorage.setItem('keyup', this.autocomplete);
-        $rootScope.show_search= true;
+        $rootScope.show_search = true;
         services_search.srch_autocomplete(this.marca, this.city, this.autocomplete);
     }
 
     $rootScope.click_prod = function (idcar) {
-        $rootScope.show_search= false;
+        $rootScope.show_search = false;
         $window.location.href = '#/shop/' + idcar;
     }
 
     $rootScope.search = function () {
-        $rootScope.show_search= false;
+        $rootScope.show_search = false;
+        if (this.autocomplete) {
+            localStorage.setItem('keyup', this.autocomplete);
+        }
         $window.location.href = '#/shop/';
     }
 

@@ -1,0 +1,6 @@
+utils/mail.ini
+DB/db.ini
+backend/model/jwt.ini
+backend/model/mailgun.ini
+**.ini
+.dockerignore

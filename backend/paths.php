@@ -38,7 +38,9 @@ define('DAO_SEARCH', SITE_ROOT . 'backend/module/search/model/DAO/');
 
 //Login
 define('VIEW_LOGIN', SITE_ROOT . 'module/login/view/');
-define('MODEL_LOGIN', SITE_ROOT . '/module/login/model/model/');
+define('MODEL_LOGIN', SITE_ROOT . 'backend/module/login/model/model/');
+define('BLL_LOGIN', SITE_ROOT . 'backend/module/login/model/BLL/');
+define('DAO_LOGIN', SITE_ROOT . 'backend/module/login/model/DAO/');
 
 //Cart
 define('VIEW_CART', SITE_ROOT . 'module/cart/view/');

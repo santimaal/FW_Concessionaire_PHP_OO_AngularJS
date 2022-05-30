@@ -34,10 +34,6 @@
     transform: translateX(-50%);
 }
 
-#carousel__img {
-    width: 150px!important;
-}
-
 #containerCategories, #containerTypes {
     text-align: center;
     padding-left: 295px;

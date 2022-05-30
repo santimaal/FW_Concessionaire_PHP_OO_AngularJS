@@ -1,0 +1,31 @@
+<form id = "login__form" method="post" style="margin-top: 100px;">
+  <div class="container">
+    <div class="form__input">
+      <label for="username"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" id="username" name="username" ng-model="login.usr" required>
+      <font color="red">
+        <span id="error_username" class="error">{{error.eror_usr}}</span>
+      </font>
+    </div>
+    <div class="form__input">
+      <label for="password"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" id="password" name="password" ng-model="login.pass" required>
+      <font color="red">
+        <span id="error_password" class="error">{{error.pass}}</span>
+      </font>
+    </div>
+    <div class="error_login"></div>
+    <span class="psw">Forgot <a class="recover" href="#">password?</a></span>
+    <div class="button_container">
+      <input class="button" id="login" type="button" value = "Enter" ng-click="click_login()"/>
+    </div>
+    <div class="container">
+      <a class="button" id="register" type="button" href="?page=login&op=viewreg">Create new account</a>
+    </div>
+  </div>
+  <input type="button" id="botonsl_gmail" value="Haz login con Google"/>
+  <input type="button" id="botonsl_github" value="Haz login con Github"/>
+</form>
+<div class="recoverr"></div>
+
+<link rel="stylesheet" href="frontend/module/login/view/css/login.css">

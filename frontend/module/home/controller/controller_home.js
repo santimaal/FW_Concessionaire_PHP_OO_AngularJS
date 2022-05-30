@@ -46,7 +46,6 @@ app.controller('controller_home', function ($scope, carousel, categoria, type, b
                 i = limit - 1;
                 $scope.show_btnmore = false;
             }
-            console.log(book);
         }
         $scope.news = book;
 
