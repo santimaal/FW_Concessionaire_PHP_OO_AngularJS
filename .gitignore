@@ -3,3 +3,4 @@ backend/model/jwt.ini
 backend/model/newmailgun.ini
 **.ini
 .dockerignore
+docker-compose.yml

@@ -12,15 +12,14 @@ class mail
                 $email['fromEmail'] = 'santimartinezalbert02@gmail.com';
                 $email['inputEmail'] = 'santimartinezalbert02@gmail.com';
                 $email['inputMatter'] = 'Email verification';
-                // $email['inputMessage'] = "<h2>Email verification.</h2><a href = 'http://localhost/concessionaire/framework/login/verify/$email[token]'>Click here for verify your email.</a>";
-                $email['inputMessage'] = "<h2>Email verification.</h2><a href = 'http://localhost/concessionaire/framework/index.php?page=login&op=viewlog&$email[token]&verify'>Click here for verify your email.</a>";
+                $email['inputMessage'] = "<h2>Email Verification.</h2><a href = 'http://localhost/angular_js/#/register/activate/$email[token]'>Click here for verify your email.</a>";
                 break;
             case 'recover';
                 $email['fromEmail'] = 'santimartinezalbert02@gmail.com';
                 $email['inputEmail'] = 'santimartinezalbert02@gmail.com';
                 $email['inputMatter'] = 'Recover password';
                 // $email['inputMessage'] = "<a href = 'http://localhost/website/login/recover/$email[token]'>Click here for recover your password.</a>";
-                $email['inputMessage'] = "<h2>Email verification.</h2><a href = 'http://localhost/concessionaire/framework/index.php?page=login&op=viewlog&$email[token]&recover'>Click here for recover your password.</a>";
+                $email['inputMessage'] = "<h2>Password Recover.</h2><a href = 'http://localhost/concessionaire/framework/index.php?page=login&op=viewlog&$email[token]&recover'>Click here for recover your password.</a>";
                 break;
         }
         return self::send_mailgun($email);
@@ -28,7 +27,7 @@ class mail
 
     public static function send_mailgun($values)
     {
-        $mailgun = parse_ini_file(MODEL_PATH . "mailgun.ini");
+        $mailgun = parse_ini_file(MODEL_PATH . "newmailgun.ini");
         $api_key = $mailgun['api_key'];
         $api_url = $mailgun['api_url'];
 

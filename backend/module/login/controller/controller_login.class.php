@@ -2,18 +2,6 @@
 
 class controller_login
 {
-    function viewlog()
-    {
-        // echo "log";
-        // exit;
-        common::load_view('top_page_login.html', VIEW_PATH_LOGIN . 'login.html');
-    }
-
-    function viewreg()
-    {
-        common::load_view('top_page_register.html', VIEW_PATH_LOGIN . 'register.html');
-    }
-
     function register()
     {
         echo json_encode(common::load_model('login_model', 'get_register', [$_POST['username'], $_POST['email'],  $_POST['password']]));
