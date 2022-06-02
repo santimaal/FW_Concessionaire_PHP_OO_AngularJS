@@ -46,6 +46,9 @@ app.config(['$routeProvider', '$locationProvider',
             }).when("/register/activate/:token", {
                 templateUrl: "frontend/module/login/view/register.html",
                 controller: "controller_register"
+            }).when("/register/recover/:token", {
+                templateUrl: "frontend/module/login/view/recover.html",
+                controller: "controller_register"
             }).otherwise("/contact", {
                 templateUrl: "frontend/module/contact/view/contact.html",
                 controller: "controller_contact"

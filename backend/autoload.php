@@ -14,8 +14,8 @@ function loadClasses($className)
     if (file_exists(SITE_ROOT . 'backend/module/' . $breakClass[0] . '/model' . $modelName . '/' . $className . '.class.singleton.php')) {
         set_include_path('backend/module/' . $breakClass[0] . '/model/' . $modelName . '/');
         spl_autoload($className);
-    } else if (file_exists(SITE_ROOT . 'DB/' . $className . '.class.singleton.php')) {
-        set_include_path(SITE_ROOT . 'DB/');
+    } else if (file_exists(SITE_ROOT . 'backend/model/' . $className . '.class.singleton.php')) {
+        set_include_path(SITE_ROOT . 'backend/model/');
         spl_autoload($className);
     } else if (file_exists(SITE_ROOT . 'DB/' . $className . '.class.php')) {
         set_include_path(SITE_ROOT . 'DB/');

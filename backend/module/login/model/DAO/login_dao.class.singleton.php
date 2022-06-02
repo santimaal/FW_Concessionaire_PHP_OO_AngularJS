@@ -1,6 +1,6 @@
 <?php
 
-require DB_PATH. 'db.class.singleton.php';
+require MODEL_PATH. 'db.class.singleton.php';
 
 class login_dao
 {

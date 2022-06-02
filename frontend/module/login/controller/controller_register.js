@@ -21,7 +21,7 @@ app.controller('controller_register', function ($scope, $window, services_login,
 
     $scope.click_register = function () {
         if (validate_register() != 0) {
-            services_login.register($scope.register);
+            services_login.register($scope.register, $scope);
         }
     }
 
@@ -58,12 +58,12 @@ app.controller('controller_register', function ($scope, $window, services_login,
         }
 
         if ($scope.register.pass.length === 0) {
-            $scope.error_pass = "Tienes que escribir el usuario";
+            $scope.error_pass = "Tienes que escribir la contraseña";
             error = true;
             $scope.show_error_pass = true;
         } else {
             if ($scope.register.pass.length <= 3) {
-                $scope.error_pass = "El nombre de usuario debe tener minimo 4 caracteres";
+                $scope.error_pass = "La contraseña debe tener minimo 4 caracteres";
                 error = true;
                 $scope.show_error_pass = true;
             } else {

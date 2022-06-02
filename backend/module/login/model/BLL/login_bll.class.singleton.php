@@ -94,7 +94,7 @@ class login_bll
         $check = login_bll::get_user_repeat_BLL($usr);
 
         if (!$check) {
-            echo json_encode("username");
+            return ("username");
         } else {
             try {
                 $rdo = $this->dao->select_user($this->db, $usr);

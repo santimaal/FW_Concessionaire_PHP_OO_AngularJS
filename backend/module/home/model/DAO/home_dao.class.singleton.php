@@ -1,5 +1,5 @@
 <?php
-require DB_PATH. 'db.class.singleton.php';
+require MODEL_PATH. 'db.class.singleton.php';
 
     class home_dao {
         static $_instance;
