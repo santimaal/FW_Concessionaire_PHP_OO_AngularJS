@@ -43,11 +43,14 @@ app.config(['$routeProvider', '$locationProvider',
             }).when("/register", {
                 templateUrl: "frontend/module/login/view/register.html",
                 controller: "controller_register"
-            }).when("/register/activate/:token", {
+            }).when("/register/activate/:token_activate", {
                 templateUrl: "frontend/module/login/view/register.html",
                 controller: "controller_register"
-            }).when("/register/recover/:token", {
-                templateUrl: "frontend/module/login/view/recover.html",
+            }).when("/register/recover", {
+                templateUrl: "frontend/module/login/view/register.html",
+                controller: "controller_register"
+            }).when("/register/recover/:token_recover", {
+                templateUrl: "frontend/module/login/view/register.html",
                 controller: "controller_register"
             }).otherwise("/contact", {
                 templateUrl: "frontend/module/contact/view/contact.html",

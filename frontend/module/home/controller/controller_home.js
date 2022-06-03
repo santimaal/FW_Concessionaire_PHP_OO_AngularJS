@@ -23,6 +23,7 @@ app.controller('controller_home', function ($scope, carousel, categoria, type, b
 
     $scope.brdclick = function (brd) {
         console.log(brd)
+        var filters = []
         localStorage.setItem('marca', brd);
         $window.location.href = '#/shop';
     }

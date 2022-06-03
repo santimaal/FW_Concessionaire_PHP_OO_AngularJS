@@ -1,5 +1,5 @@
-app.factory('services_login', ['$rootScope', 'services', 'toastr', '$window', 'services_lstorage',  function ($rootScope, services, toastr, $window, services_lstorage) {
-    let service = { register, activate, login }
+app.factory('services_login', ['$rootScope', 'services', 'toastr', '$window', 'services_lstorage', function ($rootScope, services, toastr, $window, services_lstorage) {
+    let service = { register, activate, login, recover, recover_newpass }
     return service;
 
     function register(form, scope) {
@@ -54,6 +54,26 @@ app.factory('services_login', ['$rootScope', 'services', 'toastr', '$window', 's
             }, function (error) {
                 console.log(error);
             });
+    }
+
+
+    function recover(email) {
+        services.post('login', 'recover', { 'email': email })
+            .then(function (response) {
+                console.log(response);
+            }, function (error) {
+                console.log(error);
+            });
+    }
+
+    function recover_newpass(pass, tk_email) {
+        console.log(pass + ' ' + tk_email);
+        services.post('login', 'recover_pass', { 'token_email': tk_email, 'pass': pass }) 
+        .then(function (response) {
+            console.log(response);
+        }, function (error) {
+            console.log(error);
+        });
     }
 
 }])

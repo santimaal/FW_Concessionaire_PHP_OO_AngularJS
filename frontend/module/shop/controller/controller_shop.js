@@ -33,7 +33,6 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
         $scope.show_allcars = true;
         $scope.filterlist = true;
         services_shop.search();
-        localStorage.removeItem('marca');
         localStorage.removeItem('city');
         localStorage.removeItem('keyup');
     } else if (!localStorage.getItem('filters')) {

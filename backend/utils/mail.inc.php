@@ -18,8 +18,7 @@ class mail
                 $email['fromEmail'] = 'santimartinezalbert02@gmail.com';
                 $email['inputEmail'] = 'santimartinezalbert02@gmail.com';
                 $email['inputMatter'] = 'Recover password';
-                // $email['inputMessage'] = "<a href = 'http://localhost/website/login/recover/$email[token]'>Click here for recover your password.</a>";
-                $email['inputMessage'] = "<h2>Password Recover.</h2><a href = 'http://localhost/concessionaire/framework/index.php?page=login&op=viewlog&$email[token]&recover'>Click here for recover your password.</a>";
+                $email['inputMessage'] = "<h2>Password Recover.</h2><a href = 'http://localhost/angular_js/#/register/recover/$email[token]'>Click here for recover your password.</a>";
                 break;
         }
         return self::send_mailgun($email);

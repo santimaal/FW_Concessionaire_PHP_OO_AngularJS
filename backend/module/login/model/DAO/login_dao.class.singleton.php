@@ -67,7 +67,7 @@ class login_dao
 
     public function update_pass($db, $token_email, $pass)
     {
-        $sql = "UPDATE `user` SET `passwd`= $pass WHERE `token_email` = '$token_email'";
+        $sql = "UPDATE `user` SET `passwd`= '$pass' WHERE `token_email` = '$token_email'";
         $stmt = $db->ejecutar($sql);
         return "update";
     }

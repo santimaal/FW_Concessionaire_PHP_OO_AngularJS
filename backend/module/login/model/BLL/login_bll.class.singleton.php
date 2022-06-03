@@ -158,6 +158,8 @@ class login_bll
 
     public function get_recover_pass_BLL($email_token, $pass)
     {
+        $hashed_pass = password_hash($pass, PASSWORD_DEFAULT);
+
         $pass_hashed = password_hash($pass, PASSWORD_DEFAULT);
         $this->dao->update_pass($this->db, $email_token, $pass_hashed);
         $old_token = $email_token;

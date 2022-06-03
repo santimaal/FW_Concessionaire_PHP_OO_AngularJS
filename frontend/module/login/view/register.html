@@ -1,4 +1,4 @@
-<form id="register__form" method="post" style="margin-top: 100px;">
+<form id="register__form" method="post" style="margin-top: 100px;" ng-show="show_register_form">
   <div class="form__content">
     <div class="form__input">
       <label for="username"><b>Username</b></label>
@@ -22,10 +22,52 @@
       </font>
     </div>
   </div>
-  <span class="psw">Forgot <a href="#">password?</a></span>
+  <span class="psw">Forgot <a href="#/register/recover">password?</a></span>
   <div class="button_container">
     <input class="button" id="register" type="button" value="Enter" ng-click="click_register()" />
   </div>
 </form>
+
+
+<!-- RECOVER -->
+
+<form id="recover__form" method="post" style="margin-top: 100px;" ng-show="show_recover_form">
+  <div class="form__content">
+    <div class="form__input">
+      <label for="email"><b>Email</b></label>
+      <input type="text" id="email" name="email" ng-model="recover.email" placeholder="Enter Email">
+      <font color="red">
+        <span id="error_email" class="error" ng-show="show_error_email">{{error_email}}</span>
+      </font>
+    </div>
+    <div class="button_container">
+      <input class="button" id="recover" type="button" value="Enter" ng-click="click_send_recover()" />
+    </div>
+  </div>
+</form>
+
+<div ng-show="show_recover_pass_form">
+  <form id="recover__form" method="post" style="margin-top: 100px;">
+    <div class="form__content">
+      <div class="form__input">
+        <label for="password"><b>Password</b></label>
+        <input type="password" id="password" name="password" ng-model="recover.pass1" placeholder="Enter Password">
+        <font color="red">
+          <span id="error_password" class="error" ng-show="show_error_pass">{{error_pass}}</span>
+        </font>
+      </div>
+      <div class="form__input">
+        <label for="password"><b>Repeat the password</b></label>
+        <input type="password" id="password" name="password" ng-model="recover.pass2" placeholder="Enter Password">
+        <font color="red">
+          <span id="error_password" class="error" ng-show="show_error_pass">{{error_pass_recover}}</span>
+        </font>
+      </div>
+      <div class="button_container">
+        <input class="button" id="recover" type="button" value="Enter" ng-click="click_recover()" />
+      </div>
+    </div>
+  </form>
+</div>
 
 <link rel="stylesheet" href="frontend/module/login/view/css/register.css">
