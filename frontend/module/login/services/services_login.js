@@ -1,5 +1,5 @@
 app.factory('services_login', ['$rootScope', 'services', 'toastr', '$window', 'services_lstorage', function ($rootScope, services, toastr, $window, services_lstorage) {
-    let service = { register, activate, login, recover, recover_newpass }
+    let service = { register, activate, login, recover, recover_newpass, data_user, logout }
     return service;
 
     function register(form, scope) {
@@ -48,7 +48,16 @@ app.factory('services_login', ['$rootScope', 'services', 'toastr', '$window', 's
                     scope.show_error_pass = true;
                     // $rootScope.show_error_pass = true;
                 } else {
+                    toastr.success("User logged successfully");
                     services_lstorage.token_add(response);
+                    setTimeout(function () {
+                        localStorage.setItem('reload', "yes");
+                        if (localStorage.getItem('callback')) {
+                            $window.location.href = localStorage.getItem('callback');
+                        } else {
+                            $window.location.href = '#/home';
+                        }
+                    }, 1500);
                 }
                 console.log(response);
             }, function (error) {
@@ -67,13 +76,27 @@ app.factory('services_login', ['$rootScope', 'services', 'toastr', '$window', 's
     }
 
     function recover_newpass(pass, tk_email) {
-        console.log(pass + ' ' + tk_email);
-        services.post('login', 'recover_pass', { 'token_email': tk_email, 'pass': pass }) 
-        .then(function (response) {
-            console.log(response);
-        }, function (error) {
-            console.log(error);
-        });
+        services.post('login', 'recover_pass', { 'token_email': tk_email, 'pass': pass })
+            .then(function (response) {
+                console.log(response);
+            }, function (error) {
+                console.log(error);
+            });
     }
 
-}])
+    function data_user(token) {
+        services.post('login', 'data_user', { 'token': token })
+            .then(function (response) {
+                console.log(response[0]);
+                $rootScope.avatar = response[0].avatar;
+                $rootScope.usr = response[0].username;
+            }, function (error) {
+                console.log(error);
+            });
+    }
+
+    function logout() {
+        services_lstorage.token_del();
+    }
+
+}]);

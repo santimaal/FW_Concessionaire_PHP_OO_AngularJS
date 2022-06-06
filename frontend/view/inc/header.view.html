@@ -1,38 +1,44 @@
 <div id="header">"
-<header id="header">
-					<h1 id="logo"><a href="index.php?page=shop&op=list"><img src="frontend/view/img/pic01.png" height="60"/></a></h1>
-					<div id="search" style="padding-left: 130px;">
-						<select class="marcassearch" ng-model="marca" ng-change="click_marca()">
-							<option value="" selected disabled hidden>Brand</option>
-							<option id="{{data.id}}" value="{{data.id}}" ng-repeat="data in srchmarca">{{data.id}}</option>
-						</select>
-						<select class="ciudadsearch" ng-model="city" ng-change="click_city()">
-							<option value="" selected disabled hidden>City</option>
-							<option id="{{data.city}}" value="{{data.city}}" ng-repeat="data in srchcity">{{data.city}}</option>
-						</select>
-						<div id="autosearch" class="autosearch">
-							<input id="autocom" class="autocom" type="text" ng-model="autocomplete" ng-change="click_autocomplete()"/>
-							<div id="search_auto" class="search_auto">
-								<div class="searchElement" id="{{data.id}}" ng-show="show_search" ng-repeat="data in srchauto" ng-click="click_prod(data.id)">{{data.marca}} {{data.modelo}}</div>
-							</div>
-							<img id="searchimg" class="searchimg" src="frontend/view/img/search.png" ng-click="search()"> 
-						</div>
-					</div>
-					<nav id="nav">  
-						<ul id="nav_op">
-							<li><a href="#home">Home</a></li>
-							<li><a href="#shop">Shop</a></li>
-							<li><a href="#contact">Contact</a></li>
-							<li><a href="#register">Sing in</a></li>
-							<li><a href="#login">Login</a></li>
-							<!-- <li><a href="index.php?page=controller_cars&op=list" data-tr="Cars">Cars</a></li> -->
-							<!-- <li><a href="index.php?page=controller_shop&op=list" data-tr="Shop">Shop</a></li> -->
-							<!-- <li><a href="index.php?page=controller_register&op=regis_view" data-tr="Sing in"></a></li> -->
-							<!-- <li><a href="index.php?page=controller_login&op=login_view" data-tr="Login"></a></li>-->
+	<header id="header">
+		<h1 id="logo"><a href="#home"><img src="frontend/view/img/pic01.png" height="60" /></a>
+		</h1>
+		<div id="search" style="padding-left: 130px;">
+			<select class="marcassearch" ng-model="marca" ng-change="click_marca()">
+				<option value="" selected disabled hidden>Brand</option>
+				<option id="{{data.id}}" value="{{data.id}}" ng-repeat="data in srchmarca">{{data.id}}</option>
+			</select>
+			<select class="ciudadsearch" ng-model="city" ng-change="click_city()">
+				<option value="" selected disabled hidden>City</option>
+				<option id="{{data.city}}" value="{{data.city}}" ng-repeat="data in srchcity">{{data.city}}</option>
+			</select>
+			<div id="autosearch" class="autosearch">
+				<input id="autocom" class="autocom" type="text" ng-model="autocomplete"
+					ng-change="click_autocomplete()" />
+				<div id="search_auto" class="search_auto">
+					<div class="searchElement" id="{{data.id}}" ng-show="show_search" ng-repeat="data in srchauto"
+						ng-click="click_prod(data.id)">{{data.marca}} {{data.modelo}}</div>
+				</div>
+				<img id="searchimg" class="searchimg" src="frontend/view/img/search.png" ng-click="search()">
+			</div>
+		</div>
+		<nav id="nav">
+			<ul id="nav_op">
+				<li><a href="#home">Home</a></li>
+				<li><a href="#shop">Shop</a></li>
+				<li><a href="#contact">Contact</a></li>
+				<li ng-show="show_nouser"><a href="#register">Sing in</a></li>
+				<li ng-show="show_nouser"><a href="#login">Login</a></li>
+				<li ng-show="show_user"><img src={{avatar}} class="avatar"></img></li>
+				<li ng-show="show_user"><a href="" ng-click="click_showusr(usr)">{{usr}}</a></li>
+				<li ng-show="show_user"><a href="" ng-click="logout()">Logout</a></li>
+				<!-- <li><a href="index.php?page=controller_cars&op=list" data-tr="Cars">Cars</a></li> -->
+				<!-- <li><a href="index.php?page=controller_shop&op=list" data-tr="Shop">Shop</a></li> -->
+				<!-- <li><a href="index.php?page=controller_register&op=regis_view" data-tr="Sing in"></a></li> -->
+				<!-- <li><a href="index.php?page=controller_login&op=login_view" data-tr="Login"></a></li>-->
 
-						</ul>
-					</nav>
-				</header>
+			</ul>
+		</nav>
+	</header>
 
 </div>
 

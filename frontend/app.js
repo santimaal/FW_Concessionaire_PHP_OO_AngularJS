@@ -58,7 +58,9 @@ app.config(['$routeProvider', '$locationProvider',
             });
     }]);
 
-app.run(function ($rootScope, services, services_search, $window) {
+app.run(function ($rootScope, services, services_search, services_login, $window, toastr) {
+
+    // search //
     localStorage.removeItem('marca');
     localStorage.removeItem('city');
     localStorage.removeItem('autocomplete');
@@ -95,11 +97,26 @@ app.run(function ($rootScope, services, services_search, $window) {
         $window.location.href = '#/shop/';
     }
 
-    // $rootScope.click_autocomplete = function(sexo = undefined, categoria = undefined, autocomplete){
-    //     services_search.search_autocomplete(sexo, categoria, autocomplete);
-    // }
+    // users //
 
-    // $rootScope.click_search = function(sexo = undefined, categoria = undefined, autocomplete = undefined){ 
-    //     services_search.search(sexo, categoria, autocomplete);
-    // }
+    $rootScope.show_nouser = false;
+    $rootScope.show_user = false;
+    if (localStorage.getItem('token')) {
+        console.log("token");
+        services_login.data_user(localStorage.getItem('token'));
+        $rootScope.show_user = true;
+    } else {
+        console.log("notoken");
+        $rootScope.show_nouser = true;
+    }
+
+    $rootScope.click_showusr = function (usr) {
+        toastr.error("No se puede ver el profile","ERROR");
+    }
+
+    $rootScope.logout = function () {
+        services_login.logout();
+        $window.location.reload();
+    }
+
 });

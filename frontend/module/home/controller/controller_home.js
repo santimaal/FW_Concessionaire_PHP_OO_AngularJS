@@ -1,4 +1,10 @@
 app.controller('controller_home', function ($scope, carousel, categoria, type, books, $window) {
+
+    if (localStorage.getItem('reload')) {
+        localStorage.removeItem('reload');
+        $window.location.reload();
+    }
+    
     console.log(carousel);
     console.log(books);
     $scope.show_btnmore = true;

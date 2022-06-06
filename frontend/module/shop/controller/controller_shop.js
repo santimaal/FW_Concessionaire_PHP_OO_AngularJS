@@ -1,4 +1,10 @@
 app.controller('controller_shop', function ($scope, allcars, services_shop, $window, $routeParams) {
+
+    if (localStorage.getItem('reload')) {
+        localStorage.removeItem('reload');
+        $window.location.reload();
+    }
+
     console.log($routeParams.id);
     $scope.filterlist = false;
     $scope.show_allcars = false;

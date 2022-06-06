@@ -22,13 +22,11 @@ app.controller('controller_register', function ($scope, $window, $location, serv
         services_login.activate($routeParams.token_activate);
         $window.location.href = '#/home';
     } else if ($routeParams.token_recover) {
-        console.log("aa");
         $scope.show_register_form = false;
         $scope.show_recover_form = false;
         $scope.show_recover_pass_form = true;
         // $scope.show_pass_recover = true;
     }
-    console.log($routeParams);
 
     $scope.register = {
         usr: '',
@@ -63,8 +61,6 @@ app.controller('controller_register', function ($scope, $window, $location, serv
     }
 
     $scope.click_recover = function () {
-        console.log("aa");
-        console.log($scope.recover);
 
         if ($scope.recover.pass1.length == 0 && $scope.recover.pass2.length == 0) {
             $scope.error_pass_recover = 'Tienes que escribir una contraseña';
