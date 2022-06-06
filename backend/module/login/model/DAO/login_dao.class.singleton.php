@@ -60,7 +60,7 @@ class login_dao
     }
     public function insert_gmail($db, $uid, $username, $avatar)
     {
-        $sql = "INSERT INTO `user`(`id`, `username`, `type`, `avatar`, `activate`) VALUES ($uid, $username, 'client', '$avatar', 'true')";
+        $sql = "INSERT INTO `user`(`id`, `username`, `type`, `avatar`, `activate`) VALUES ('$uid', '$username', 'client', '$avatar', 'true')";
         $stmt = $db->ejecutar($sql);
         return "ok";
     }

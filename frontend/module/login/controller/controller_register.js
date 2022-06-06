@@ -1,4 +1,6 @@
-app.controller('controller_register', function ($scope, $window, $location, services_login, $routeParams, toastr) {
+app.controller('controller_register', function ($scope, $window, $location, services_login, services_social_login, $routeParams, toastr) {
+
+
     $scope.regex_username = /^[A-Za-z0-9._-]{5,15}$/;
     $scope.regex_email = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
     $scope.regex_password = /^[A-Za-z0-9._-]{5,20}$/;

@@ -58,7 +58,9 @@ app.config(['$routeProvider', '$locationProvider',
             });
     }]);
 
-app.run(function ($rootScope, services, services_search, services_login, $window, toastr) {
+app.run(function ($rootScope, services, services_search, services_login, services_social_login, $window, toastr) {
+
+            services_social_login.initialize();
 
     // search //
     localStorage.removeItem('marca');

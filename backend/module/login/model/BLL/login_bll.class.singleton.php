@@ -124,16 +124,16 @@ class login_bll
 
     public function get_sl_gmail_BLL($args)
     {
-        $uid = 'gmail |' . $args[0] . '';
-        $usr = 'gmail |' . $args[1] . '';
-        $check = login_bll::get_user_repeat_BLL($usr);
+        $uid = "gmail | $args[0]";
+        $usr = "gmail | $args[1]";
         $tokenn = tokencreate($usr);
         $_SESSION['username'] = $usr;
         $_SESSION['tiempo'] = time();
+        $check = login_bll::get_user_repeat_BLL($usr);
         if ($check) {
             return $tokenn;
         } else {
-            $this->dao->insert_gmail($this->db, $uid, $usr, $args[2]);
+            $this->dao->insert_gmail($this->db, $uid, $usr, $args[2]); 
             return $tokenn;
         }
     }
@@ -149,8 +149,6 @@ class login_bll
         if ($check) {
             return $tokenn;
         } else {
-            $uid = "'github | $args[0]'";
-            $usr = "'github | $args[1]'";
             $this->dao->insert_gmail($this->db, $uid, $usr, $args[2]);
             return $tokenn;
         }

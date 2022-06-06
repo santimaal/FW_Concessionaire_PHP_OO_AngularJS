@@ -1,5 +1,4 @@
 app.factory("services", ['$http', '$q', function ($http, $q) {
-   console.log("eeee");
    let serviceBase = '/angular_js/backend/index.php?page=';
    let obj = {};
 
@@ -51,7 +50,6 @@ app.factory("services", ['$http', '$q', function ($http, $q) {
    obj.post = function (module, option, data) {
       var defered = $q.defer();
       var promise = defered.promise;
-      console.log(serviceBase + module + '&op=' + option);
       $http({
          method: 'POST',
          url: serviceBase + module + '&op=' + option,
