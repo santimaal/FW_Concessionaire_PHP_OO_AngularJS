@@ -1,16 +1,27 @@
-app.controller('controller_shop', function ($scope, allcars, services_shop, $window, $routeParams) {
+app.controller('controller_shop', function ($scope, allcars, services_shop, $window, $routeParams, services_mapbox) {
 
     if (localStorage.getItem('reload')) {
         localStorage.removeItem('reload');
         $window.location.reload();
     }
 
+    const map_dt = services_mapbox.init('map_details');
+    const map_all = services_mapbox.init('map');
+
+
     console.log($routeParams.id);
     $scope.filterlist = false;
     $scope.show_allcars = false;
     $scope.show_details = false;
+    $scope.show_nolike = true;
+    $scope.show_like = true;
     $scope.myInterval = 5000;
     $scope.details = allcars;
+    $scope.show_map_allcars = true;
+
+    for (row in allcars) {
+        services_mapbox.addmark(allcars[row], 0, map_all);
+    }
 
     var srchbrand = localStorage.getItem('marca') || false;
     var srchcity = localStorage.getItem('city') || false;
@@ -24,21 +35,22 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
     // }
     if ($routeParams.id) {
         $scope.show_details = true;
-        services_shop.details($routeParams.id);
+        services_shop.details($routeParams.id, map_dt);
+        $scope.show_map_allcars = false;
     } else if (type != false | category != false) {
         $scope.show_allcars = true;
         $scope.filterlist = true;
         if (type != false) {
-            services_shop.srchtype(localStorage.getItem('type'));
+            services_shop.srchtype(localStorage.getItem('type'), map_all);
         } else {
-            services_shop.srchcat(localStorage.getItem('category'));
+            services_shop.srchcat(localStorage.getItem('category'), map_all);
         }
         localStorage.removeItem('type');
         localStorage.removeItem('category');
     } else if (srchbrand != false | srchcity != false | srchkeyup != false) {
         $scope.show_allcars = true;
         $scope.filterlist = true;
-        services_shop.search();
+        services_shop.search(map_all);
         localStorage.removeItem('city');
         localStorage.removeItem('keyup');
     } else if (!localStorage.getItem('filters')) {
@@ -52,7 +64,7 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
         var puertas = todo[0].puertas[0];
         var color = todo[1].color;
 
-        services_shop.filters(puertas, color, 'a');
+        services_shop.filters(puertas, color, 'a', map_all);
         highlight();
     }
 

@@ -58,9 +58,9 @@ app.config(['$routeProvider', '$locationProvider',
             });
     }]);
 
-app.run(function ($rootScope, services, services_search, services_login, services_social_login, $window, toastr) {
+app.run(function ($rootScope, services, services_search, services_login, services_social_login, services_mapbox, $window, toastr) {
 
-            services_social_login.initialize();
+    services_social_login.initialize();
 
     // search //
     localStorage.removeItem('marca');
@@ -113,7 +113,7 @@ app.run(function ($rootScope, services, services_search, services_login, service
     }
 
     $rootScope.click_showusr = function (usr) {
-        toastr.error("No se puede ver el profile","ERROR");
+        toastr.error("No se puede ver el profile", "ERROR");
     }
 
     $rootScope.logout = function () {
