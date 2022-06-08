@@ -53,6 +53,7 @@ app.factory('services_login', ['$rootScope', 'services', 'toastr', '$window', 's
                     setTimeout(function () {
                         localStorage.setItem('reload', "yes");
                         if (localStorage.getItem('callback')) {
+                            localStorage.setItem('reload', 'yes');
                             $window.location.href = localStorage.getItem('callback');
                         } else {
                             $window.location.href = '#/home';

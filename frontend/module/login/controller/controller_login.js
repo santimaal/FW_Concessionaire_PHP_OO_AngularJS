@@ -1,13 +1,5 @@
 app.controller('controller_login', function ($scope, $window, services_login, services_social_login) {
 
-    // if (!$scope.ini_social_login) {
-    //     $scope.ini_social_login = 0;
-    // }
-    // if ($scope.ini_social_login == 0) {
-    //     services_social_login.initialize();
-    //     $scope.ini_social_login = 1;
-    // }
-
     $scope.show_error_usr = false;
     $scope.show_error_pass = false;
 

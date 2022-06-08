@@ -20,7 +20,7 @@
         <br />
         <br />
         <span>Marca selected: </span><br />
-        Nada<br />
+        {{marca}}<br />
         <br />
         <input type="submit" id="submit" name="aplicar" ng-click="filters()" />
         <div id="orderby" class="orderby">
@@ -35,7 +35,7 @@
     <div id="map" ng-model="mapbox" ng-show="show_map_allcars"></div>
     <div id="allcars" class="allcars" ng-show="show_allcars" infinite-scroll="loadMore()">
         <div id={{data.id}} class="listCar" ng-repeat="data in allcars">
-            <div class="like" id={{data.id}}><i ng-show="show_nolike" id={{data.id}} class="fa-regular fa-heart fa-xl right regular"></i><i ng-show="show_like" id='{{data.id}}' class="fa-solid fa-heart fa-xl right solid"></i></div>
+            <div class="like" id={{data.id}} ng-click="click_like()"><i id={{data.id}} class="{{data.fav_class}}"d></i></div>
             <div id={{data.id}} class="clicklistcar" ng-click="details(data.id)">
                 <div class="title">
                     <h3>{{data.marca}} {{data.modelo}}</h3>

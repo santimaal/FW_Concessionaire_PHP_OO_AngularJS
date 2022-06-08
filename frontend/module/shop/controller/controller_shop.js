@@ -1,7 +1,9 @@
 app.controller('controller_shop', function ($scope, allcars, services_shop, $window, $routeParams, services_mapbox) {
 
-    if (localStorage.getItem('reload')) {
+    if (localStorage.getItem('reload') || localStorage.getItem('callback')) {
+        localStorage.removeItem('callback');
         localStorage.removeItem('reload');
+        if (localStorage.getItem('reload'))
         $window.location.reload();
     }
 
@@ -9,6 +11,7 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
     const map_all = services_mapbox.init('map');
 
 
+    $scope.show_nolike =false;
     console.log($routeParams.id);
     $scope.filterlist = false;
     $scope.show_allcars = false;
@@ -67,6 +70,8 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
         services_shop.filters(puertas, color, 'a', map_all);
         highlight();
     }
+
+    services_shop.loadlikes($scope.allcars);
 
     $scope.filters = function () {
         let color = [];
@@ -142,6 +147,27 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
         console.log("high");
     }
 
+    $scope.click_like = function () {
+        console.log("click");
+        let op = null;
+        if (localStorage.getItem('token')) {
+            console.log(this.data.fav_class);
+            if (this.data.fav_class == "fa-solid fa-heart fa-xl right solid"){ 
+                this.data.fav_class = "fa-regular fa-heart fa-xl right solid";
+                op = 'unlike';
+            } else {
+                this.data.fav_class = "fa-solid fa-heart fa-xl right solid";
+                op = 'like';
+            }
+            console.log(op);
+            services_shop.likeoption(this.data.id, op);
+        } else {
+            localStorage.setItem('callback', '#/shop');
+            $window.location.href = '#/login';
+        }
+    }
+
+        /// trying checkbox color ///
     $scope.prueba = function (color, check) {
         let pruebas = [];
         console.log(color);
@@ -154,15 +180,4 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
         }
     }
 
-
-    // if (marca != null) {
-    //     url = "asda";
-    //     services_shop.filters(url);
-    //     // ajaxForSearch('?Fs=shop&op=filter&puertas=' + puertas + '&color=' + colowr + '&marca=' + marca[0].marca[0]);
-    //     ajaxForSearch('?page=shop&op=filters&puertas=' + puertas + '&color=' + color + '&marca=' + marca[0].marca[0]);
-    // } else {
-    //     ajaxForSearch('?page=shop&op=filters&puertas=' + puertas + '&color=' + color + '&marca=' + 'a');
-
-    //     // ajaxForSearch('module/shop/controller/controller_shop.php?op=ss&puertas=' + puertas + '&color=' + color + '&marca=a');
-    // 
 });
