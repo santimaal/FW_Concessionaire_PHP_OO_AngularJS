@@ -5,7 +5,6 @@ app.factory('services_login', ['$rootScope', 'services', 'toastr', '$window', 's
     function register(form, scope) {
         services.post('login', 'register', { 'username': form.usr, 'email': form.email, 'password': form.pass })
             .then(function (response) {
-                console.log(response);
                 if (response == '"errorusr"') {
                     scope.error_usr = "El usuario ya existe";
                     scope.show_error_usr = true;
@@ -60,7 +59,6 @@ app.factory('services_login', ['$rootScope', 'services', 'toastr', '$window', 's
                         }
                     }, 1500);
                 }
-                console.log(response);
             }, function (error) {
                 console.log(error);
             });

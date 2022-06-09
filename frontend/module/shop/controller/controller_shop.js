@@ -58,9 +58,9 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
         $scope.filterlist = true;
         var count1 = 2;
         $rootScope.loadMore = function() {
-            console.log("aa");
             count1++;
             $rootScope.allcars = allcars.slice(0, count1);
+            services_shop.loadlikes($scope.allcars);
         }
     } else {
         $scope.show_allcars = true;

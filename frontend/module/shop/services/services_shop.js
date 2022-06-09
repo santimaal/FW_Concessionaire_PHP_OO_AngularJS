@@ -9,10 +9,12 @@ app.factory('services_shop', ['services', '$rootScope', 'services_mapbox', funct
                 console.log(response);
                 // $rootScope.allcars = response;
                 $rootScope.allcars = response.slice(0, 3);
+                loadlikes($rootScope.allcars);
                 var count1 = 2;
                 $rootScope.loadMore = function () {
                     count1++;
                     $rootScope.allcars = response.slice(0, count1);
+                    loadlikes($rootScope.allcars);
                 }
                 for (row in response) {
                     services_mapbox.addmark(response[row], 0, map);
@@ -69,10 +71,12 @@ app.factory('services_shop', ['services', '$rootScope', 'services_mapbox', funct
                 console.log(response);
                 // $rootScope.allcars = response;
                 $rootScope.allcars = response.slice(0, 3);
+                loadlikes($rootScope.allcars);
                 var count1 = 2;
                 $rootScope.loadMore = function () {
                     count1++;
                     $rootScope.allcars = response.slice(0, count1);
+                    loadlikes($rootScope.allcars);
                 }
                 for (row in response) {
                     services_mapbox.addmark($rootScope.allcars[row], 0, map);
@@ -88,10 +92,12 @@ app.factory('services_shop', ['services', '$rootScope', 'services_mapbox', funct
                 console.log(response);
                 // $rootScope.allcars = response;
                 $rootScope.allcars = response.slice(0, 3);
+                loadlikes($rootScope.allcars);
                 var count1 = 2;
                 $rootScope.loadMore = function () {
                     count1++;
                     $rootScope.allcars = response.slice(0, count1);
+                    loadlikes($rootScope.allcars);
                 }
                 for (row in response) {
                     services_mapbox.addmark($rootScope.allcars[row], 0);
@@ -106,10 +112,12 @@ app.factory('services_shop', ['services', '$rootScope', 'services_mapbox', funct
             .then(function (response) {
                 // $rootScope.allcars = response;
                 $rootScope.allcars = response.slice(0, 3);
+                loadlikes($rootScope.allcars);
                 var count1 = 2;
                 $rootScope.loadMore = function () {
                     count1++;
                     $rootScope.allcars = response.slice(0, count1);
+                    loadlikes($rootScope.allcars);
                 }
                 for (row in response) {
                     services_mapbox.addmark($rootScope.allcars[row], 0, map);
