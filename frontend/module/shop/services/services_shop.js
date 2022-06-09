@@ -7,9 +7,15 @@ app.factory('services_shop', ['services', '$rootScope', 'services_mapbox', funct
         services.post('shop', 'filters', { 'puertas': puertas, 'color': color, 'marca': marca })
             .then(function (response) {
                 console.log(response);
-                $rootScope.allcars = response;
+                // $rootScope.allcars = response;
+                $rootScope.allcars = response.slice(0, 3);
+                var count1 = 2;
+                $rootScope.loadMore = function () {
+                    count1++;
+                    $rootScope.allcars = response.slice(0, count1);
+                }
                 for (row in response) {
-                    services_mapbox.addmark($rootScope.allcars[row], 0, map);
+                    services_mapbox.addmark(response[row], 0, map);
                 }
                 // pagination(response);
             }, function (error) {
@@ -61,7 +67,13 @@ app.factory('services_shop', ['services', '$rootScope', 'services_mapbox', funct
         services.post('search', 'autocomplete', { 'marca': localStorage.getItem('marca'), 'city': localStorage.getItem('city'), 'auto': localStorage.getItem('keyup') })
             .then(function (response) {
                 console.log(response);
-                $rootScope.allcars = response;
+                // $rootScope.allcars = response;
+                $rootScope.allcars = response.slice(0, 3);
+                var count1 = 2;
+                $rootScope.loadMore = function () {
+                    count1++;
+                    $rootScope.allcars = response.slice(0, count1);
+                }
                 for (row in response) {
                     services_mapbox.addmark($rootScope.allcars[row], 0, map);
                 }
@@ -74,7 +86,13 @@ app.factory('services_shop', ['services', '$rootScope', 'services_mapbox', funct
         services.post('shop', 'filttype', { 'type': type })
             .then(function (response) {
                 console.log(response);
-                $rootScope.allcars = response;
+                // $rootScope.allcars = response;
+                $rootScope.allcars = response.slice(0, 3);
+                var count1 = 2;
+                $rootScope.loadMore = function () {
+                    count1++;
+                    $rootScope.allcars = response.slice(0, count1);
+                }
                 for (row in response) {
                     services_mapbox.addmark($rootScope.allcars[row], 0);
                 }
@@ -86,8 +104,13 @@ app.factory('services_shop', ['services', '$rootScope', 'services_mapbox', funct
     function srchcat(cat, map) {
         services.post('shop', 'filtcategory', { 'category': cat })
             .then(function (response) {
-                // console.log(response);
-                $rootScope.allcars = response;
+                // $rootScope.allcars = response;
+                $rootScope.allcars = response.slice(0, 3);
+                var count1 = 2;
+                $rootScope.loadMore = function () {
+                    count1++;
+                    $rootScope.allcars = response.slice(0, count1);
+                }
                 for (row in response) {
                     services_mapbox.addmark($rootScope.allcars[row], 0, map);
                 }

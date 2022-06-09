@@ -47,6 +47,7 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
         localStorage.removeItem('type');
         localStorage.removeItem('category');
     } else if (srchbrand != false | srchcity != false | srchkeyup != false) {
+        $scope.marca = localStorage.getItem('marca');
         $scope.show_allcars = true;
         $scope.filterlist = true;
         services_shop.search(map_all);
@@ -55,7 +56,12 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
     } else if (!localStorage.getItem('filters')) {
         $scope.show_allcars = true;
         $scope.filterlist = true;
-        $scope.allcars = allcars;
+        var count1 = 2;
+        $rootScope.loadMore = function() {
+            console.log("aa");
+            count1++;
+            $rootScope.allcars = allcars.slice(0, count1);
+        }
     } else {
         $scope.show_allcars = true;
         $scope.filterlist = true;
