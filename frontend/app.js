@@ -58,7 +58,7 @@ app.config(['$routeProvider', '$locationProvider',
             });
     }]);
 
-app.run(function ($rootScope, services, services_search, services_login, services_social_login, services_mapbox, $window, toastr) {
+app.run(function ($rootScope, services, services_search, services_login, services_social_login, services_activity, $window, toastr) {
 
     services_social_login.initialize();
 
@@ -119,6 +119,21 @@ app.run(function ($rootScope, services, services_search, services_login, service
     $rootScope.logout = function () {
         services_login.logout();
         $window.location.reload();
+    }
+
+
+    // activity //
+
+    if (localStorage.getItem('token')) {
+        services_activity.protecturl();
+        setInterval(function () {
+            services_activity.activity();
+            services_activity.protecturl();
+        }, 10000);
+        setInterval(function () {
+            services_activity.refresh();
+        }, 60000);
+
     }
 
 });

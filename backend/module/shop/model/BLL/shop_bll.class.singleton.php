@@ -117,10 +117,10 @@ class shop_bll
 		return $this->dao->update_visit($this->db, $args);
 	}
 
-	public function get_related_BLL($brand, $id)
+	public function get_related_BLL($id)
 	{
-		if ($this->dao->get_related($this->db, $brand, $id, $_GET['limit'] = 0)) {
-			return $this->dao->get_related($this->db, $brand, $id, $_GET['limit'] = 0);
+		if ($this->dao->get_related($this->db, $id)) {
+			return $this->dao->get_related($this->db, $id);
 		} else {
 			return "error";
 		}

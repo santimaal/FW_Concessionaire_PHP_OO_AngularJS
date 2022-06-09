@@ -42,7 +42,7 @@ require BLL_SHOP . 'shop_bll.class.singleton.php';
         }
 
         public function get_related($args) {
-            return $this -> bll -> get_related_BLL($args[0], $args[1]);
+            return $this -> bll -> get_related_BLL($args[0]);
         }
 
         public function get_filtbrand($args) {

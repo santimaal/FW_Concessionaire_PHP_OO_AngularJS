@@ -1,4 +1,4 @@
-app.controller('controller_shop', function ($scope, allcars, services_shop, $window, $routeParams, services_mapbox) {
+app.controller('controller_shop', function ($scope, allcars, services_shop, $window, $routeParams,$rootScope, services_mapbox) {
 
     if (localStorage.getItem('reload') || localStorage.getItem('callback')) {
         localStorage.removeItem('callback');
@@ -31,14 +31,10 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
     var srchkeyup = localStorage.getItem('keyup') || false;
     var type = localStorage.getItem('type') || false;
     var category = localStorage.getItem('category') || false;
-    // $scope.show_details = false;
-    // if ($scope.details) {
-    // $scope.show_details = true;
-    // $scope.show_allcars = false;
-    // }
+
     if ($routeParams.id) {
         $scope.show_details = true;
-        services_shop.details($routeParams.id, map_dt);
+        services_shop.details($routeParams.id, map_dt, $scope);
         $scope.show_map_allcars = false;
     } else if (type != false | category != false) {
         $scope.show_allcars = true;
@@ -165,6 +161,10 @@ app.controller('controller_shop', function ($scope, allcars, services_shop, $win
             localStorage.setItem('callback', '#/shop');
             $window.location.href = '#/login';
         }
+    }
+
+    if ($scope.allrelated){
+        console.log("relateds esta cargado")
     }
 
         /// trying checkbox color ///

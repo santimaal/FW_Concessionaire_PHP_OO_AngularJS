@@ -94,9 +94,10 @@ class shop_dao
         $stmt = $db->ejecutar($sql);
         return "unlike";
     }
-    function get_related($db, $brand, $id, $limit)
+    function get_related($db, $id)
     {
-        $sql = "SELECT * FROM cars WHERE marca LIKE '%" . $brand . "%' AND id<>" . $id . " LIMIT " . $limit . ",3;";
+        // $sql = "SELECT * FROM cars WHERE marca LIKE '%" . $brand . "%' AND id<>" . $id . ";";
+        $sql = "SELECT * FROM cars WHERE cars.id<>'$id' AND cars.marca = (SELECT cars.marca FROM cars WHERE cars.id='$id');";
         $stmt = $db->ejecutar($sql);
         return $db->listar($stmt);
     }
@@ -121,5 +122,4 @@ class shop_dao
         $stmt = $db->ejecutar($sql);
         return $db->listar($stmt);
     }
-
 }

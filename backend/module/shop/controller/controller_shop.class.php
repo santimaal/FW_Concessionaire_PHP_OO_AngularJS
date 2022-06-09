@@ -49,7 +49,7 @@ class controller_shop
 
     function related()
     {
-        echo json_encode(common::load_model('shop_model', 'get_related', [$_GET['brand'], $_GET['id']]));
+        echo json_encode(common::load_model('shop_model', 'get_related', [$_POST['id']]));
     }
     function filtbrand()
     {

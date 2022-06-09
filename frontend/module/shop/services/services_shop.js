@@ -17,7 +17,7 @@ app.factory('services_shop', ['services', '$rootScope', 'services_mapbox', funct
             });
     }
 
-    function details(idcar, map) {
+    function details(idcar, map, scope) {
         services.post('shop', 'details', { 'id': idcar })
             .then(function (response) {
                 $rootScope.details1 = response;
@@ -25,7 +25,37 @@ app.factory('services_shop', ['services', '$rootScope', 'services_mapbox', funct
             }, function (error) {
                 console.log(error);
             });
+
+        services.post('shop', 'related', { 'id': idcar })
+            .then(function (response) {
+                $rootScope.loadrelated = response;
+                for_relateds(scope)
+            }, function (error) {
+                console.log(error);
+            });
     }
+
+    function for_relateds(scope, num = 3) {
+        let limit = num;
+        let cars = [];
+        scope.show_btnmore = true;
+        for (i = 0; i < limit; i++) {
+            console.log(i)
+            if ($rootScope.loadrelated[i] != undefined) {
+                cars.push($rootScope.loadrelated[i]);
+            } else {
+                i = limit - 1;
+                scope.show_btnmore = false;
+            }
+        }
+        scope.allrelated = cars;
+
+        scope.click_more = function () {
+            console.log("clickk");
+            for_relateds(scope, limit + 3);
+        }
+    }
+
 
     function search(map) {
         services.post('search', 'autocomplete', { 'marca': localStorage.getItem('marca'), 'city': localStorage.getItem('city'), 'auto': localStorage.getItem('keyup') })
