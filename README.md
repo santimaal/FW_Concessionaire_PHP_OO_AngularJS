@@ -46,14 +46,16 @@ La tienda que tienes nuestra web es lo mas importante, ya que en esta se puede h
 Lista de tecnologías utilizadas en este proyecto:
 * [PHP](https://www.php.net/manual/es/intro-whatis.php): Version 8
 * [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript): Version ECMAScript 2016
-* [JQuery](https://jquery.com/): Version 3.0.0-beta1
+* [AngularJS](https://angularjs.org/): Version 1.4.9
 
 ## Librerías empleadas
 ***
 Lista de librerías utilizadas en este proyecto:
-* [Glider Js](https://nickpiscitelli.github.io/Glider.js/): Version 2
-* [Bootpag](https://github.com/botmonster/jquery-bootpag)
-* [Modal](https://jquery.com/)
+* [Bootstrap](https://getbootstrap.com/)
+* [Infinite-Scroll](https://www.npmjs.com/package/ng-infinite-scroll)
+* [Mailgun](https://landing.sendinblue.com/es/mailgun/?km_device=c&utm_medium=cpc&utm_adgroupid=49232768299&utm_matchtype=e&utm_network=g&km_adposition=&gclid=EAIaIQobChMIirPlq8uq-AIV2PZRCh1URAyeEAAYASAAEgJJpvD_BwE&utm_content=Competitors&utm_term=mailgun&utm_extension=&km_adid=233316047971&utm_source=adwords&utm_campaign=869957437)
 * [API Mapbox Js](https://www.mapbox.com)
-* [GoogleApis](https://www.googleapis.com)
+* [Toastr](https://www.npmjs.com/package/angularjs-toaster)
+* [FontAwesome](https://fontawesome.com/)
+* [Firebase](https://firebase.google.com/?gclid=EAIaIQobChMIpPXI6suq-AIVze3mCh2BkgH2EAAYASAAEgKQsPD_BwE&gclsrc=aw.ds)
 
